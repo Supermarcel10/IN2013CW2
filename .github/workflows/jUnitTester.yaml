@@ -1,0 +1,19 @@
+name: Manual JUnit Test Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '17'
+
+    - name: Run JUnit tests
+      run: mvn test -Dtest=DailyRecordTest
